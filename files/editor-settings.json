@@ -1,0 +1,13 @@
+{
+  "workbench.startupEditor": "none",
+  "explorer.compactFolders": false,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 750,
+  "editor.minimap.enabled": false,
+  "editor.fontSize": 14,
+  "editor.tabSize": 4,
+  "editor.rulers": [88],
+  "editor.renderWhitespace": "boundary",
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "terminal.integrated.defaultProfile.linux": "bash"
+}

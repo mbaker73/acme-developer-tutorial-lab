@@ -1,13 +1,7 @@
-# Skeleton Lab
+# Acme Analytics API: Developer Getting-Started Guide
 
-This is the Skeleton Lab that defines the minimum set of resources needed to
-be able to launch a lab:
+Instruqt Labs 2.0 port of `jparton-challenge/acme-developer-tutorial`.
 
-- a single panel layout
-- a lab that uses the specified layout
-
-You can use this as a minimal starting point for developing labs.
-
-In the Skeleton Lab we have chosen to follow certain standards when placing our files. 
-This structure follows the best practises we have found while creating content, 
-but it is possible to deviate from the naming conventions demonstrated here.
+Three containers on a shared network: `postgres` (postgres:15), `api`
+(python:3.11, FastAPI), and `workstation` (ubuntu:22.04). Two chapters/pages,
+each with its own task, ported from the original two challenges.
