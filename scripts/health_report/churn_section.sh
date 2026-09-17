@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Section 2 is the exercise: header row plus one row per at-risk account.
 grep -q "CHURN WATCHLIST" /root/acme_report.csv 2>/dev/null || exit 1
 

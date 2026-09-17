@@ -1,5 +1,5 @@
-#!/bin/bash
-set -euxo pipefail
+#!/bin/sh
+set -eux
 
 # ─────────────────────────────────────────────
 # Install API dependencies

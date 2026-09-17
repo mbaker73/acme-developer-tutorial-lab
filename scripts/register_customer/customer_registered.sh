@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # The seed data loads exactly 12 customers, so anything above that is the
 # learner's own POST /api/customers landing in Postgres.
 API="${ACME_API:-http://api:8000}"

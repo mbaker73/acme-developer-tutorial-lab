@@ -1,5 +1,5 @@
-#!/bin/bash
-set -euxo pipefail
+#!/bin/sh
+set -eux
 
 # The 1.0 version of this script opened by waiting on
 # /opt/instruqt/bootstrap/host-bootstrap-completed. That file is a 1.0 host

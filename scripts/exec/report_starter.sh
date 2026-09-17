@@ -1,5 +1,5 @@
-#!/bin/bash
-set -euo pipefail
+#!/bin/sh
+set -eu
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Report starter + reference files

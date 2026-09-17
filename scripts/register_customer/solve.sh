@@ -1,5 +1,5 @@
-#!/bin/bash
-set -euo pipefail
+#!/bin/sh
+set -eu
 API="${ACME_API:-http://api:8000}"
 
 curl -sf -X POST "${API}/api/customers" \

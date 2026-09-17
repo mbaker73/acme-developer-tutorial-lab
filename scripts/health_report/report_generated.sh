@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # The learner has to actually run the script, not just edit it.
 [ -f /root/acme_report.py ]  || exit 1
 [ -f /root/acme_report.csv ] || exit 1

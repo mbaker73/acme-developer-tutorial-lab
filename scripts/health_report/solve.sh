@@ -1,5 +1,5 @@
-#!/bin/bash
-set -euo pipefail
+#!/bin/sh
+set -eu
 
 # The reference implementation is already staged on the workstation, so the
 # solve is the same edit the learner is asked to make: copy it into place.
