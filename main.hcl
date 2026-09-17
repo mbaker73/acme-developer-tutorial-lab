@@ -16,10 +16,15 @@ resource "lab" "acme_developer_tutorial" {
 
   icon = "assets/acme-corp.png"
 
-  # NOTE: 1.0's `tags:` (postgresql, devrel, rest-api, developer) carry over
-  # unchanged — tagging is still a flat list in 2.0.
-  tags = ["postgresql", "devrel", "rest-api", "developer"]
+  # NOTE: 1.0's `tags:` (postgresql, devrel, rest-api, developer) were a
+  # track.yml attribute. 2.0 moves tagging out of HCL entirely — it's set on
+  # the lab's Details page in the web UI instead. Set there to match:
+  # postgresql, devrel, rest-api, developer.
 
+  # NOTE: 1.0 also had `skipping_enabled` (skipping allowed) at the track
+  # level. The 2.0 `controls` block only exposes show_stop — there is no HCL
+  # equivalent for skip. Per the focus-areas doc this is likely a Details-page
+  # toggle too; set "allow skipping" there if the UI offers it.
   settings {
     timelimit {
       duration   = "30m"
@@ -32,8 +37,7 @@ resource "lab" "acme_developer_tutorial" {
     }
 
     controls {
-      show_stop_button = true
-      allow_skip       = true
+      show_stop = true
     }
 
     theme = "modern-dark"
