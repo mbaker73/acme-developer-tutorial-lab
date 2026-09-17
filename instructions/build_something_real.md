@@ -4,15 +4,15 @@ In this chapter you'll create a Python script that calls the Acme Analytics API,
 
 ---
 
-<h2 style="color: #37C980;">Step 1: Review the API Response Shapes</h2>
+## Step 1: Review the API Response Shapes
 
 Start by confirming what each analytics endpoint returns. You'll need these field names in your report:
 
-```bash
+```bash,run
 curl -s $ACME_API/api/analytics/revenue | jq '{total_revenue: .total_revenue, sample_segment: .by_segment[0]}'
 ```
 
-```bash
+```bash,run
 curl -s $ACME_API/api/analytics/churn-risk | jq '{count: .count, sample_account: .accounts[0]}'
 ```
 
@@ -20,17 +20,17 @@ Note the field names in each response — your script will map these directly in
 
 ---
 
-<h2 style="color: #37C980;">Step 2: Review the Starter Script</h2>
+## Step 2: Review the Starter Script
 
 Open the **Editor** tab. The starter script is pre-loaded at `/root/acme_report.py`. Review it now — the revenue section is complete, but the churn section is a `TODO` you'll implement in Step 3.
 
 Run the starter as-is to confirm the revenue section works:
 
-```bash
+```bash,run
 python3 /root/acme_report.py
 ```
 
-```bash
+```bash,run
 cat /root/acme_report.csv
 ```
 
@@ -38,7 +38,7 @@ You'll see the **REVENUE BY SEGMENT** section with data. Note the enterprise cus
 
 ---
 
-<h2 style="color: #37C980;">Step 3: Add the Churn Watchlist</h2>
+## Step 3: Add the Churn Watchlist
 
 Open the editor and complete the churn section. The `churn` variable is already fetched at the top of `main()` — you need to write it to the CSV below the existing revenue section.
 
@@ -53,11 +53,11 @@ Your churn section should:
 
 Wait for the editor to save, then run and verify from the terminal:
 
-```bash
+```bash,run
 python3 /root/acme_report.py
 ```
 
-```bash
+```bash,run
 cat /root/acme_report.csv
 ```
 
@@ -71,11 +71,11 @@ If you need help, open `/root/acme_report_complete.py` in the Editor tab — it 
 
 ---
 
-<h2 style="color: #37C980;">Step 4: Extend the Integration</h2>
+## Step 4: Extend the Integration
 
 The `POST /api/customers` endpoint you used in the previous chapter feeds the same database. Register a new enterprise customer and verify the report updates to reflect it:
 
-```bash
+```bash,run
 curl -s -X POST $ACME_API/api/customers \
   -H "Content-Type: application/json" \
   -d '{
@@ -88,11 +88,11 @@ curl -s -X POST $ACME_API/api/customers \
 
 Re-run the report:
 
-```bash
+```bash,run
 python3 /root/acme_report.py
 ```
 
-```bash
+```bash,run
 cat /root/acme_report.csv
 ```
 

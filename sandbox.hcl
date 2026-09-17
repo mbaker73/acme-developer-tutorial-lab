@@ -9,6 +9,12 @@
 # Ported from the 1.0 track's config.yml. In 1.0 the shared network and name
 # resolution were implicit; in 2.0 the network is an explicit resource and
 # every container joins it with an alias it can be reached by.
+#
+# NOTE: 1.0's `memory: 512` per container carried over literally at first and
+# OOM-killed the workstation container mid-session (apt-get + pip installs
+# under a hard 512MB cgroup limit). 2.0 enforces the container memory limit
+# as a hard ceiling rather than 1.0's more lenient VM-level accounting, so
+# this needed raising to 1024 across all three containers.
 # ─────────────────────────────────────────────────────────────────────────────
 
 resource "network" "acme" {
@@ -31,7 +37,7 @@ resource "container" "postgres" {
 
   resources {
     cpu    = 500
-    memory = 512
+    memory = 1024
   }
 
   network {
@@ -84,7 +90,7 @@ resource "container" "api" {
 
   resources {
     cpu    = 500
-    memory = 512
+    memory = 1024
   }
 
   network {
@@ -124,7 +130,7 @@ resource "container" "workstation" {
 
   resources {
     cpu    = 500
-    memory = 512
+    memory = 1024
   }
 
   network {
