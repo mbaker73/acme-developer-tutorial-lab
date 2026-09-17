@@ -65,6 +65,10 @@ You should see both **REVENUE BY SEGMENT** and **CHURN WATCHLIST** sections with
 
 If you need help, open `/root/acme_report_complete.py` in the Editor tab — it contains the completed implementation.
 
+<instruqt-task id="health_report">
+  Complete the churn section of `/root/acme_report.py` and regenerate `/root/acme_report.csv` so it contains both the REVENUE BY SEGMENT and CHURN WATCHLIST sections.
+</instruqt-task>
+
 ---
 
 <h2 style="color: #37C980;">Step 4: Extend the Integration</h2>

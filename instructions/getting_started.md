@@ -104,4 +104,8 @@ curl -s "$ACME_API/api/customers?status=active" | jq '.customers[-1]'
 
 Your new customer should appear in the list with `"status": "active"`.
 
+<instruqt-task id="register_customer">
+  Register a new customer via `POST $ACME_API/api/customers`.
+</instruqt-task>
+
 ✅ You've made your first successful API calls against a live PostgreSQL-backed REST API. Move on to the next chapter to build a real integration.
