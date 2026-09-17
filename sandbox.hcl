@@ -56,7 +56,7 @@ resource "container" "postgres" {
 # REST API
 # ─────────────────────────────────────────────
 resource "container" "api" {
-  depends_on = ["resource.container.postgres"]
+  depends_on = [resource.container.postgres]
 
   image {
     name = "python:3.11"
@@ -110,7 +110,7 @@ resource "container" "api" {
 # Learner workstation
 # ─────────────────────────────────────────────
 resource "container" "workstation" {
-  depends_on = ["resource.container.api"]
+  depends_on = [resource.container.api]
 
   image {
     name = "ubuntu:22.04"
@@ -148,7 +148,7 @@ resource "exec" "postgres_seed" {
 }
 
 resource "exec" "api_setup" {
-  depends_on = ["resource.exec.postgres_seed"]
+  depends_on = [resource.exec.postgres_seed]
 
   target  = resource.container.api
   script  = "scripts/exec/api_setup.sh"
@@ -156,7 +156,7 @@ resource "exec" "api_setup" {
 }
 
 resource "exec" "workstation_setup" {
-  depends_on = ["resource.exec.api_setup"]
+  depends_on = [resource.exec.api_setup]
 
   target  = resource.container.workstation
   script  = "scripts/exec/workstation_setup.sh"
@@ -167,7 +167,7 @@ resource "exec" "workstation_setup" {
 # setup-workstation script. 2.0 has no per-chapter setup lifecycle, so this
 # runs up front as part of sandbox provisioning.
 resource "exec" "report_starter" {
-  depends_on = ["resource.exec.workstation_setup"]
+  depends_on = [resource.exec.workstation_setup]
 
   target  = resource.container.workstation
   script  = "scripts/exec/report_starter.sh"
